@@ -121,6 +121,8 @@ def main():
     ap.add_argument("--within", type=int, default=1,
                     help="crossed within this many completed closes (1 = on the latest close)")
     ap.add_argument("--dry-run", action="store_true", help="print only; no email/SMS")
+    ap.add_argument("--email-only", action="store_true",
+                    help="send email via SMTP but skip iMessage/SMS (for non-Mac/cloud runs)")
     args = ap.parse_args()
 
     asof = load_local(REGIME_TICKER)["Adj Close"].dropna().index[-1]
@@ -140,7 +142,8 @@ def main():
         print("\n[dry-run] no email/SMS sent.")
         return
     send_email(subject, body)
-    send_imessage(SMS_NUMBERS, sms)
+    if not args.email_only:
+        send_imessage(SMS_NUMBERS, sms)
 
 
 if __name__ == "__main__":
