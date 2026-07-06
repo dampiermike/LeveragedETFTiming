@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.pyc
+
+# Local run artifacts
+logs/
+*.log
+
+# Backtest / search CSV outputs (regenerable)
+*.csv
+
+# ETF price data — refreshed from EODHD at runtime
+json/
+
+# Screenshots / images
+*.png
