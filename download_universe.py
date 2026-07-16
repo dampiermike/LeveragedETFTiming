@@ -17,6 +17,7 @@ import os
 import sys
 import time
 
+import config_loader  # noqa: F401  -- loads config.env into os.environ (must be first)
 import requests
 
 HERE = os.path.dirname(os.path.abspath(__file__))

@@ -2,6 +2,9 @@
 __pycache__/
 *.pyc
 
+# Secrets — never commit (EODHD token + Gmail SMTP creds)
+config.env
+
 # Local run artifacts
 logs/
 *.log

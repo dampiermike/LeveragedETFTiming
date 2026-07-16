@@ -23,6 +23,7 @@ import argparse
 import glob
 import os
 
+import config_loader  # noqa: F401  -- loads config.env into os.environ (must be first)
 import pandas as pd
 
 from crossover_backtest import load_local, moving_average
